@@ -25874,3 +25874,34 @@ img {
   padding:10px;
   padding-left:20px;
 }
+
+
+.slick-next {
+  right: 0px;
+  top:43%;
+  z-index: 1;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  width: 80px;
+  transition: all ease-in 0.3s;
+}
+.slick-prev {
+  left: 0px;
+  top:43%;
+  z-index: 1;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  width: 80px;
+  transition: all ease-in 0.3s;
+}
+
+.slick-prev:before, .slick-next:before{
+  font-size:30px;
+  color:red;
+}
+.slick-next:focus, .slick-next:hover{
+  background: rgba(0, 0, 0, 0);
+}
+.slick-prev:focus, .slick-prev:hover{
+  background: rgba(0, 0, 0, 0);
+}

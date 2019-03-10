@@ -28,8 +28,7 @@ import { ReadnewsComponent } from './components/readnews/readnews.component';
 import { ReadeventComponent } from './components/readevent/readevent.component';
 import { SearchComponent } from './components/search/search.component';
 import { homedataService } from './components/home/homedata.service';
-
-
+import { SlickModule } from 'ngx-slick';
 @NgModule( {
   declarations:[
     AppComponent, 
@@ -47,7 +46,7 @@ import { homedataService } from './components/home/homedata.service';
   imports:[
     BrowserModule, 
     BrowserAnimationsModule, 
-    RouterModule.forRoot(AppRoutes), 
+    RouterModule.forRoot(AppRoutes),
     ClickOutsideModule, 
     SharedModule, 
     FormsModule, 
@@ -55,6 +54,7 @@ import { homedataService } from './components/home/homedata.service';
     HttpClientModule,
     CarouselModule.forRoot(),
     ModalModule.forRoot(),
+    SlickModule.forRoot(),
     FileUploadModule
   ], 
   providers:[{provide:LocationStrategy, useClass:HashLocationStrategy}, HomeService, CustomNotifyService, HomeComponent, SearchComponent, homedataService], 

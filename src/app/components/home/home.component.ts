@@ -13,7 +13,7 @@ import { homedataService } from '../home/homedata.service';
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css']
 })
-    
+
 export class HomeComponent implements OnInit {
     authForm: BsModalRef;
     newsList: any = [];
@@ -28,9 +28,27 @@ export class HomeComponent implements OnInit {
     isSignIn: boolean;
     homePage: boolean;
 
+      slideConfig = {
+        "slidesToShow": 4,
+        "slidesToScroll": 1,
+        "dots": false,
+        "infinite": true,
+        "autoplay": true,
+        "autoplaySpeed": 1500,
+    };
+
+    slideConfig1 = {
+        "slidesToShow": 4,
+        "slidesToScroll": 1,
+        "dots": false,
+        "infinite": true,
+        "autoplay": true,
+        "autoplaySpeed": 1500,
+    };
+     
+      
     page= {"totalRecords":0,"page":1,"limit":10}
     
-
     constructor(private modalService: BsModalService, private router: Router, private homeService :HomeService, private notify: CustomNotifyService, private _homedataService: homedataService) {  
         const password = new FormControl('', Validators.required);
         const email = new FormControl('', [Validators.required, Validators.email]);

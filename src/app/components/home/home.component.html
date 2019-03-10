@@ -6,7 +6,6 @@
   </div>
   <div class="row top_nav">
     <div class="col-12 wid100">
-  
       <div class="top_info_pa1">
         <a class="text-black-50 link_button f16 rockwell curser_pointer" (click)="openSignUpModal()">Sign Up</a>
         <a class="link_button text-black-50 f16 rockwell curser_pointer" (click)="openSignInModal()">Sign In</a>
@@ -383,6 +382,8 @@
       </div>
     </div>
   </div>
+
+
   <div class="row mlr" style="background-color:#F4F4F4">
     <div class="container">
       <div class="sec_part1 py-5 carousel-item">
@@ -496,188 +497,121 @@
       </div>
     </div>
   </div>
+
+
   <div class="row events_setion">
-    <div class="sec_part1 col-xl-12 col-md-12 col-lg-12">
-      <div class="container">
-        <div class="title_section">
-          <div class="title_bar">
-            <img src="../../../assets/images/Group%2080.png" />
-          </div>
-          <div class="title_text">
-            <h2 class="prime_heading2 rockwell">Latest Events</h2>
+      <div class="sec_part1 col-xl-12 col-md-12 col-lg-12">
+        <div class="container">
+          <div class="title_section">
+            <div class="title_bar">
+              <img src="../../../assets/images/Group%2080.png" />
+            </div>
+            <div class="title_text">
+              <h2 class="prime_heading2 rockwell">Latest Events</h2>
+            </div>
           </div>
         </div>
-      </div>
-      <div>
-        <div class="container-fluid  my-3 events">
-          <div class="row mx-auto my-auto mt-auto mr-auto mb-auto ml-auto mar0 pos_rel">
-            <div id="myCarousel1" class="slide w-100 carousel" data-ride="carousel">
-              <div class="carousel-inner" role="listbox">
-                <div class="carousel-item py-5 active">
-                  <div class="row mlr">
-                    
-                    <div class="col-md-6 col-xl-3 col-lg-6 padlr_5" *ngFor="let event of eventList">
-                      <div class="card">
-                        <div class="card-body padding card4_img">
-                          <img src="http://localhost:3000/{{event.imgUrl.replace('public','')}}" class="image_4cards">
+        <div>
+          <div class="container-fluid  my-3 events">
+            <div class="row mx-auto my-auto mt-auto mr-auto mb-auto ml-auto mar0 pos_rel">
+              <div id="myCarousel1" class="slide w-100 carousel" data-ride="carousel">
+                <div class="carousel-inner" role="listbox">
+                  <div class="carousel-item py-5 active">
+                    <ngx-slick class="row mlr" #slickModal="slick-modal" [config]="slideConfig">
+                      <div ngxSlickItem class="col-md-6 col-xl-3 col-lg-6 padlr_5" *ngFor="let event of eventList">
+                        <div class="card">
+                          <div class="card-body padding card4_img">
+                            <img src="http://localhost:3000/{{event.imgUrl.replace('public','')}}" class="image_4cards">
+                          </div>
+                        </div>
+                        <div class="card mb30 event_content_card">
+                          <div class="card-body card_height">
+                              <h6 class="prime_h6">{{event.date | date:'fullDate'}}</h6>
+                              <h2 class="prime_h2">{{event.title}}</h2>
+                              <h5 class="prime_h5 body_control" [innerHTML]="event.content"></h5>                 
+                            <a class="badge badge-danger readmore_button red_secondary fr curser_pointer" (click)="readEvent(event)">Read More</a>
+                          </div>
                         </div>
                       </div>
-                      <div class="card mb30 event_content_card">
-                        <div class="card-body card_height">
-                            <h6 class="prime_h6">{{event.date | date:'fullDate'}}</h6>
-                            <h2 class="prime_h2">{{event.title}}</h2>
-                            <h5 class="prime_h5 body_control" [innerHTML]="event.content"></h5>                 
-                          <a class="badge badge-danger readmore_button red_secondary fr curser_pointer" (click)="readEvent(event)">Read More</a>
-                        </div>
-                      </div>
-                    </div>
-  
+                    </ngx-slick>
                   </div>
-                  
                 </div>
-  
               </div>
-            </div>
-            <div class="row arrow3">
-              <div class="col-12">
-                <a class="carousel-control-prev text-dark" role="button" data-slide="prev" style="width: 10px;">
-                  <span class="fa fa-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
-                <a class="carousel-control-next text-dark" role="button" data-slide="next" style="width: 10px;">
-                  <span class="fa fa-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+              <div class="row arrow3">
+                <div class="col-12">
+                  <a class="carousel-control-prev text-dark" role="button" data-slide="prev" style="width: 10px;">
+                    <span class="fa fa-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
+                  <a class="carousel-control-next text-dark" role="button" data-slide="next" style="width: 10px;">
+                    <span class="fa fa-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+
+
+
+
+
+
   <div class="row news_section">
-    <div class="sec_part1 col-xl-12 col-md-12 col-lg-12">
-      <div class="container">
-        <div class="title_section">
-          <div class="title_bar">
-            <img src="../../../assets/images/divider.png" />
-          </div>
-          <div class="title_text">
-            <h2 class="prime_heading rockwell">Latest News</h2>
+      <div class="sec_part1 col-xl-12 col-md-12 col-lg-12">
+        <div class="container">
+          <div class="title_section">
+            <div class="title_bar">
+              <img src="../../../assets/images/divider.png" />
+            </div>
+            <div class="title_text">
+              <h2 class="prime_heading rockwell">Latest News</h2>
+            </div>
           </div>
         </div>
-      </div>
-      <div>
-        <div class="container-fluid my-3 events">
-          <div class="row mx-auto my-auto mt-auto mr-auto mb-auto ml-auto mar0 pos_rel">
-            <div id="myCarousel2" class="slide w-100 carousel" data-ride="carousel">
-              <div class="carousel-inner" role="listbox">
-                <div class="carousel-item py-5 active">
-                  <div class="row mlr">
-                    <div class=" col-md-6 col-xl-3 col-lg-6 padlr_5" *ngFor="let news of newsList">
-                      <div class="card">
-                        <div class="card-body padding card4_img">
-                          <img src="http://localhost:3000/{{news.imgUrl.replace('public','')}}" class="image_4cards">
+        <div>
+          <div class="container-fluid my-3 news">
+            <div class="row mx-auto my-auto mt-auto mr-auto mb-auto ml-auto mar0 pos_rel">
+              <div id="myCarousel2" class="slide w-100 carousel" data-ride="carousel">
+                <div class="carousel-inner" role="listbox">
+                  <div class="carousel-item py-5 active">
+                    <ngx-slick class="row mlr carousel" #slickModal="slick-modal" [config]="slideConfig">
+                      <div ngxSlickItem class="slide col-md-6 col-xl-3 col-lg-6 padlr_5" *ngFor="let news of newsList">
+                        <div class="card">
+                          <div class="card-body padding card4_img">
+                            <img src="http://localhost:3000/{{news.imgUrl.replace('public','')}}" class="image_4cards">
+                          </div>
+                        </div>
+                        <div class="card mb30 news_content_card">
+                          <div class="card-body card_height">
+                            <h6 class="prime_h6">{{news.date | date:'fullDate'}}</h6>
+                            <h2 class="prime_h2">{{news.title}}</h2>
+                            <h5 class="prime_h5 body_control" [innerHTML]="news.description"></h5>
+                            <a class="badge badge-danger readmore_button red_secondary fr curser_pointer" (click)="readNews(news)">Read More</a>
+                          </div>
                         </div>
                       </div>
-                      <div class="card mb30 news_content_card">
-                        <div class="card-body card_height">
-                          <h6 class="prime_h6">{{news.date | date:'fullDate'}}</h6>
-                          <h2 class="prime_h2">{{news.title}}</h2>
-                          <h5 class="prime_h5 body_control" [innerHTML]="news.description"></h5>
-                          <a class="badge badge-danger readmore_button red_secondary fr curser_pointer" (click)="readNews(news)">Read More</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item py-5">
-                  <div class="row mlr">
-                    <div class="col-md-6 col-xl-3 col-lg-6 padlr_5">
-                      <div class="card">
-                        <div class="card-body padding">
-                          <img src="../../../assets/images/event_pic.png" class="image_4cards">
-                        </div>
-                      </div>
-                      <div class="card mb30 news_content_card">
-                        <div class="card-body">
-                          <h6 class="prime_h6">Sep 29, 2018</h6>
-                          <h2 class="prime_h2">Dandia</h2>
-                          <h5 class="prime_h5">Lorem Ipsum is simply dummy text of the
-                            printing and typesetting industry. Lorem Ipsum has been the
-                            industry�s standard dummy text ever since the 1500s, when an
-                            unknown printer took a galley</h5>
-                          <a class="badge badge-danger readmore_button red_secondary fr">Read More</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class=" col-md-6 col-xl-3 col-lg-6 padlr_5">
-                      <div class="card">
-                        <div class="card-body padding">
-                          <img src="../../../assets/images/Group%2090.png" class="image_4cards">
-                        </div>
-                      </div>
-                      <div class="card mb30 news_content_card">
-                        <div class="card-body">
-                          <h6 class="prime_h6">Sep 29, 2018</h6>
-                          <h2 class="prime_h2">Movie</h2>
-                          <h5 class="prime_h5">Lorem Ipsum is simply dummy text of the
-                            printing and typesetting industry. Lorem Ipsum has been the
-                            industry�s standard dummy text ever since the 1500s, when an
-                            unknown printer took a galley</h5>
-                          <a class="badge badge-danger readmore_button red_secondary fr">Read More</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class=" col-md-6 col-xl-3 col-lg-6 padlr_5">
-                      <div class="card">
-                        <div class="card-body padding">
-                          <img src="../../../assets/images/Group%2091.png" class="image_4cards">
-                        </div>
-                      </div>
-                      <div class="card mb30 news_content_card">
-                        <div class="card-body">
-                          <h6 class="prime_h6">Sep 29, 2018</h6>
-                          <h2 class="prime_h2">Dancing</h2>
-                          <h5 class="prime_h5">Lorem Ipsum is simply dummy text of the
-                            printing and typesetting industry. Lorem Ipsum has been the
-                            industry�s standard dummy text ever since the 1500s, when an
-                            unknown printer took a galley</h5>
-                          <a class="badge badge-danger readmore_button red_secondary fr">Read More</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class=" col-md-6 col-xl-3 col-lg-6 padlr_5">
-                      <div class="card">
-                        <div class="card-body padding">
-                          <img src="../../../assets/images/event_pic.png" class="image_4cards">
-                        </div>
-                      </div>
-                      <div class="card mb30 news_content_card">
-                        <div class="card-body">
-                          <h6 class="prime_h6">Sep 29, 2018</h6>
-                          <h2 class="prime_h2">Music</h2>
-                          <h5 class="prime_h5">Lorem Ipsum is simply dummy text of the
-                            printing and typesetting industry. Lorem Ipsum has been the
-                            industry�s standard dummy text ever since the 1500s, when an
-                            unknown printer took a galley</h5>
-                          <a class="badge badge-danger readmore_button red_secondary fr">Read More</a>
-                        </div>
-                      </div>
-                    </div>
+                      </ngx-slick>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="row arrow4">
-              <div class="col-12">
-                <a class="carousel-control-prev text-dark" role="button" data-slide="prev" style="width: 10px;">
-                  <span class="fa fa-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
-                <a class="carousel-control-next text-dark" role="button" data-slide="next" style="width: 10px;">
-                  <span class="fa fa-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+              <div class="row arrow4">
+                <div class="col-12">
+                  <a class="carousel-control-prev text-dark" role="button" data-slide="prev" style="width: 10px;">
+                    <span class="fa fa-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
+                  <a class="carousel-control-next text-dark" role="button" data-slide="next" style="width: 10px;">
+                    <span class="fa fa-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
   </div>
+
+
+<!-- 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 -->
+
+
   <div class="row oneshot_row">
     <div class="container">
       <div class="oneshot_sec">
